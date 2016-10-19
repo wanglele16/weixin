@@ -1,0 +1,89 @@
+<!--index.wxml-->
+<import src = "/tpls/banner.wxml" />
+<view class="index-container">
+    <view class="index-head">
+        <scroll-view scroll-x="true" class="scroll1">
+            <block class="index-nav" wx:for="{{indexnavs}}">
+                <li class="{{current == index ? 'active' : ''}}" catchtap="switchSlider" data-index="{{index}}">{{item.nav}}</li>
+            </block>
+        </scroll-view>
+        <view class="plus"></view>
+    </view>
+
+    <view class="index-loading">
+        <loading hidden="{{loadingHidden}}">拼命加载中...</loading>
+    </view>
+
+    <swiper class="index-body" indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" current="{{current}}" bindchange="changeSlider">
+
+        <swiper-item>
+            <scroll-view scroll-y="true" style="height: 100%" bindscrolltoupper="actionToupper" bindscrolltolower="actionTolower" upper-threshold="0" lower-threshold="0" scroll-top="{{refreshHidden ? 1 : 0}}">
+                <view hidden="{{refreshHidden}}">
+                    <button plain="true" loading="true" style = "border: none">努力刷新中...</button>
+                </view>
+
+                <swiper indicator-dots="true" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" style="height: 180px">
+                    <block wx:for="{{indexbanner}}">
+                        <swiper-item>
+                            <image src="{{item.img}}" class="slide-image" style="width: 100%; height: 180px" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <!-- <template is = "banner" data = "{{...indexbanner}}">    </template> -->
+
+                <view class="course">
+                    <block wx:for="{{indexcourse}}">
+                        <view class="courseHead">{{item.title}}</view>
+                        <image src="{{item.img}}" style="width: 100%; height: 100px" />
+                    </block>
+                </view>
+
+                <view hidden="{{loadmoreHidden}}">
+                  <button plain="true" loading="true" style = "border: none">努力加载中...</button>
+                </view>
+
+            </scroll-view>
+        </swiper-item>
+
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                2
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                3
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                4
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                5
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                6
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                7
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                8
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true">
+                9
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>

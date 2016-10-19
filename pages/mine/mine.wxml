@@ -1,0 +1,8 @@
+<import src="/tpls/signin.wxml" />
+<import src="/tpls/actionsheet.wxml" />
+<import src="/tpls/toast.wxml" />
+<template is="signin" data="{{modalHidden, ...userInfo}}"></template>
+<template is="actionsheet" data="{{...actionSheet}}"></template>
+<template is="toast" data="{{toastHidden}}"></template>
+<input value="{{text}}" />
+<text>{{text}}</text>
